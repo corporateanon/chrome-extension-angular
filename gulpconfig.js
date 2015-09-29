@@ -31,17 +31,17 @@ function conf() {
       buildProd: buildProd,
     },
 
-    backgroundScript: {
-      destAssets: 'background',
-      vendorJs: [
-        './app/bower_components/moment/moment.js',
-      ],
-      js: [
-        './app/background/*.js',
-      ],
-      buildDev: buildDev,
-      buildProd: buildProd,
-    },
+    // backgroundScript: {
+    //   destAssets: 'background',
+    //   vendorJs: [
+    //     './app/bower_components/moment/moment.js',
+    //   ],
+    //   js: [
+    //     './app/background/*.js',
+    //   ],
+    //   buildDev: buildDev,
+    //   buildProd: buildProd,
+    // },
 
     optionsPage: {
       destAssets: 'options',
@@ -60,21 +60,21 @@ function conf() {
       buildProd: buildProd,
     },
 
-    browserAction: {
-      destAssets: 'browser-action',
-      html: './app/browser-action.html',
-      vendorJs: [
-        './app/bower_components/angular/angular.js',
-      ],
-      js: [
-        './app/browser-action/js/**/*.module.js',
-        './app/browser-action/js/**/*.!(module).js',
-      ],
-      angularTemplates: [
-        './app/browser-action/js/**/*.html'
-      ],
-      buildDev: buildDev,
-      buildProd: buildProd,
-    },
+    // browserAction: {
+    //   destAssets: 'browser-action',
+    //   html: './app/browser-action.html',
+    //   vendorJs: [
+    //     './app/bower_components/angular/angular.js',
+    //   ],
+    //   js: [
+    //     './app/browser-action/js/**/*.module.js',
+    //     './app/browser-action/js/**/*.!(module).js',
+    //   ],
+    //   angularTemplates: [
+    //     './app/browser-action/js/**/*.html'
+    //   ],
+    //   buildDev: buildDev,
+    //   buildProd: buildProd,
+    // },
   };
 }

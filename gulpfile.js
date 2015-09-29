@@ -11,11 +11,11 @@ var $ = require('gulp-load-plugins')({
 spa.appDev      (conf.optionsPage     , 'options.app.dev'    );
 spa.appProd     (conf.optionsPage     , 'options.app.prod'   );
 
-spa.appDev      (conf.browserAction   , 'browser-action.app.dev' );
-spa.appProd     (conf.browserAction   , 'browser-action.app.prod');
+// spa.appDev      (conf.browserAction   , 'browser-action.app.dev' );
+// spa.appProd     (conf.browserAction   , 'browser-action.app.prod');
 
-spa.appDev      (conf.backgroundScript, 'background.app.dev' );
-spa.appProd     (conf.backgroundScript, 'background.app.prod');
+// spa.appDev      (conf.backgroundScript, 'background.app.dev' );
+// spa.appProd     (conf.backgroundScript, 'background.app.prod');
 
 spa.appDev      (conf.contentScript   , 'content.app.dev'    );
 spa.appProd     (conf.contentScript   , 'content.app.prod'   );
@@ -37,8 +37,8 @@ gulp.task('icon.prod', function() {
 
 gulp.task('dev', [
   'options.app.dev',
-  'browser-action.app.dev',
-  'background.app.dev',
+  // 'browser-action.app.dev',
+  // 'background.app.dev',
   'content.app.dev',
   'manifest.dev',
   'icon.dev',

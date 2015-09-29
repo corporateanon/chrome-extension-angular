@@ -5,10 +5,10 @@
     .module('content')
     .controller('ContentController', ContentController);
 
-  ContentController.$inject = [];
+  ContentController.$inject = ['$log', 'parser'];
 
   /* @ngInject */
-  function ContentController() {
+  function ContentController($log, parser) {
     var vm = this;
     vm.title = 'Content Controller';
 
@@ -17,6 +17,8 @@
     ////////////////
 
     function activate() {
+      const result = parser.parseBody();
+      $log.debug('comments', result);
     }
 
   }
