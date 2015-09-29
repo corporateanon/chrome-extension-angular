@@ -1,16 +1,18 @@
 module.exports = conf;
 
 function conf() {
+
+  var buildDev = 'build/dev';
+  var buildProd = 'build/prod';
+
   return {
     manifest: {
-      buildDev: 'build/dev',
-      buildProd: 'build/prod',
       src: './app/_manifest.json',
+      buildDev: buildDev,
+      buildProd: buildProd,
     },
 
     contentScript: {
-      buildDev: 'build/dev',
-      buildProd: 'build/prod',
       destAssets: 'content',
       vendorJs: [
         './app/bower_components/angular/angular.js',
@@ -22,11 +24,11 @@ function conf() {
       angularTemplates: [
         './app/content/js/**/*.html'
       ],
+      buildDev: buildDev,
+      buildProd: buildProd,
     },
 
     backgroundScript: {
-      buildDev: 'build/dev',
-      buildProd: 'build/prod',
       destAssets: 'background',
       vendorJs: [
         './app/bower_components/moment/moment.js',
@@ -34,11 +36,11 @@ function conf() {
       js: [
         './app/background/*.js',
       ],
+      buildDev: buildDev,
+      buildProd: buildProd,
     },
 
     optionsPage: {
-      buildDev: 'build/dev',
-      buildProd: 'build/prod',
       destAssets: 'options',
       html: './app/options.html',
       vendorJs: [
@@ -51,6 +53,25 @@ function conf() {
       angularTemplates: [
         './app/options/js/**/*.html'
       ],
+      buildDev: buildDev,
+      buildProd: buildProd,
+    },
+
+    browserAction: {
+      destAssets: 'browser-action',
+      html: './app/browser-action.html',
+      vendorJs: [
+        './app/bower_components/angular/angular.js',
+      ],
+      js: [
+        './app/browser-action/js/**/*.module.js',
+        './app/browser-action/js/**/*.!(module).js',
+      ],
+      angularTemplates: [
+        './app/browser-action/js/**/*.html'
+      ],
+      buildDev: buildDev,
+      buildProd: buildProd,
     },
   };
 }

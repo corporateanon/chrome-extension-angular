@@ -2,6 +2,9 @@
   "manifest_version": 2,
   "name": "My App",
   "version": "0.0.0",
+  "icons": {
+    "128": "icon.png"
+  },
   "content_scripts": [{
     "matches": ["https://*.example.com/*"],
     "js": [
@@ -19,5 +22,8 @@
   "options_ui": {
     "page": "options.html",
     "chrome_style": true
+  },
+  "browser_action": {
+    "default_popup": "browser-action.html"
   }
 }
