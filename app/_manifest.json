@@ -3,7 +3,7 @@
   "name": "My App",
   "version": "0.0.0",
   "content_scripts": [{
-    "matches": ["https://*.dirty.ru/*"],
+    "matches": ["https://*.example.com/*"],
     "js": [
       "content/js/vendors.js",
       "content/js/app.js"
