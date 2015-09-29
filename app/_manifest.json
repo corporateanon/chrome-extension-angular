@@ -15,5 +15,9 @@
       "background/js/app.js"
     ],
     "persistent": true
+  },
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true
   }
 }
