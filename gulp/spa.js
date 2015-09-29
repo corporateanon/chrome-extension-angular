@@ -47,11 +47,15 @@ function app(conf, taskName, dev) {
   validateConfig(conf);
 
   gulp.task(taskName, function() {
-    var smVendor, smTemplateCache, smApp, smFullApp;
+    var smVendor, smTemplateCache,
+      smApp, smFullApp, smInject,
+      smLess;
+
     var buildPath = dev ? conf.buildDev : conf.buildProd;
 
     var destHtml = buildPath;
     var destJs = path.join(buildPath, conf.destAssets, 'js');
+    var destCss = path.join(buildPath, conf.destAssets, 'css');
 
     smApp = gulp
       .src(conf.js)
@@ -60,6 +64,13 @@ function app(conf, taskName, dev) {
       .pipe($.concat('app.js'))
       .pipe($.if(!dev, $.uglify()))
       .pipe($.if(dev, $.sourcemaps.write()));
+
+    if(conf.less) {
+      smLess = gulp
+        .src(conf.less)
+        .pipe($.less())
+        .pipe(gulp.dest(destCss));      
+    }
 
     if (conf.vendorJs) {
       smVendor = gulp
@@ -87,7 +98,12 @@ function app(conf, taskName, dev) {
 
     smFullApp = smFullApp.pipe(gulp.dest(destJs));
 
-    var smInject = conf.vendorJs ? series(smVendor, smFullApp) : smFullApp;
+    
+    smInject = conf.vendorJs ? series(smVendor, smFullApp) : smFullApp;
+
+    if(conf.less) {
+      smInject = series(smVendor, smLess);
+    }
 
     if (!conf.html) {
       return smInject;

@@ -17,6 +17,9 @@ function conf() {
       vendorJs: [
         './app/bower_components/angular/angular.js',
       ],
+      less: [
+        './app/content/less/main.less',
+      ],
       js: [
         './app/content/js/**/*.module.js',
         './app/content/js/**/*.!(module).js',
