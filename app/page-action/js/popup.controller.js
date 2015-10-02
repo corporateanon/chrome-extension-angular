@@ -1,22 +1,31 @@
 (function() {
-    'use strict';
+  'use strict';
 
-    angular
-        .module('pAction')
-        .controller('PopupController', PopupController);
+  angular
+    .module('pAction')
+    .controller('PopupController', PopupController);
 
-    PopupController.$inject = [];
+  PopupController.$inject = ['$log', 'TopService'];
 
-    /* @ngInject */
-    function PopupController() {
-        var vm = this;
-        vm.title = 'PopupController';
+  /* @ngInject */
+  function PopupController($log, TopService) {
+    var vm = this;
+    vm.title = 'PopupController';
 
-        activate();
+    activate();
 
-        ////////////////
+    ////////////////
 
-        function activate() {
-        }
+    function activate() {
+      getTops();
     }
+
+    function getTops() {
+      TopService.getList()
+        .then(tops => {
+          $log.debug('tops', tops)
+          vm.tops = tops;
+        });
+    }
+  }
 })();

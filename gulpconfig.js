@@ -31,17 +31,18 @@ function conf() {
       buildProd: buildProd,
     },
 
-    // backgroundScript: {
-    //   destAssets: 'background',
-    //   vendorJs: [
-    //     './app/bower_components/moment/moment.js',
-    //   ],
-    //   js: [
-    //     './app/background/*.js',
-    //   ],
-    //   buildDev: buildDev,
-    //   buildProd: buildProd,
-    // },
+    backgroundScript: {
+      destAssets: 'background',
+      vendorJs: [
+        './app/bower_components/moment/moment.js',
+        './app/bower_components/lodash/lodash.js',
+      ],
+      js: [
+        './app/background/*.js',
+      ],
+      buildDev: buildDev,
+      buildProd: buildProd,
+    },
 
     optionsPage: {
       destAssets: 'options',

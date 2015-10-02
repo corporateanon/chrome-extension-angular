@@ -26,6 +26,24 @@ spa.appProd     (conf.contentScript   , 'content.app.prod'   );
 spa.manifestDev (conf.manifest        , 'manifest.dev'       );
 spa.manifestProd(conf.manifest        , 'manifest.prod'      );
 
+gulp.task('page-action.icon.dev', function() {
+  gulp
+    .src('app/page-action/img/**/*.svg')
+    .pipe($.rsvg({
+      format: 'png'
+    }))
+    .pipe(gulp.dest('build/dev/page-action/img'));
+});
+
+gulp.task('page-action.icon.prod', function() {
+  gulp
+    .src('app/page-action/img/**/*.svg')
+    .pipe($.rsvg({
+      format: 'png'
+    }))
+    .pipe(gulp.dest('build/prod/page-action/img'));
+});
+
 gulp.task('icon.dev', function() {
   gulp
     .src('app/icon.png')
@@ -42,6 +60,7 @@ gulp.task('dev', [
   'options.app.dev',
   'browser-action.app.dev',
   'page-action.app.dev',
+  'page-action.icon.dev',
   'background.app.dev',
   'content.app.dev',
   'manifest.dev',

@@ -17,8 +17,9 @@
     ////////////////
 
     function activate() {
-      const result = parser.parseBody();
-      $log.debug('comments', result);
+      const comments = parser.parseBody();
+      $log.debug('comments', comments);
+      chrome.runtime.sendMessage(['comments-parsed', comments]);
     }
 
   }
