@@ -60,6 +60,24 @@ function conf() {
       buildProd: buildProd,
     },
 
+<<<<<<< HEAD
+    // browserAction: {
+    //   destAssets: 'browser-action',
+    //   html: './app/browser-action.html',
+    //   vendorJs: [
+    //     './app/bower_components/angular/angular.js',
+    //   ],
+    //   js: [
+    //     './app/browser-action/js/**/*.module.js',
+    //     './app/browser-action/js/**/*.!(module).js',
+    //   ],
+    //   angularTemplates: [
+    //     './app/browser-action/js/**/*.html'
+    //   ],
+    //   buildDev: buildDev,
+    //   buildProd: buildProd,
+    // },
+=======
     browserAction: {
       destAssets: 'browser-action',
       html: './app/browser-action.html',
@@ -93,5 +111,6 @@ function conf() {
       buildDev: buildDev,
       buildProd: buildProd,
     },
+>>>>>>> 7deabcb... page action
   };
 }

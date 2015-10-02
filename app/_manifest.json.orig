@@ -15,18 +15,14 @@
       "content/css/main.css"
     ]
   }],
-  "background": {
-    "scripts": [
-      "background/js/vendors.js",
-      "background/js/app.js"
-    ],
-    "persistent": true
-  },
   "options_ui": {
     "page": "options.html",
     "chrome_style": true
+<<<<<<< HEAD
+=======
   },
   "page_action": {
     "default_popup": "page-action.html"
+>>>>>>> 7deabcb... page action
   }
 }
