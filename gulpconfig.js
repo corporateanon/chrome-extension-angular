@@ -76,5 +76,22 @@ function conf() {
       buildDev: buildDev,
       buildProd: buildProd,
     },
+
+    pageAction: {
+      destAssets: 'page-action',
+      html: './app/page-action.html',
+      vendorJs: [
+        './app/bower_components/angular/angular.js',
+      ],
+      js: [
+        './app/page-action/js/**/*.module.js',
+        './app/page-action/js/**/*.!(module).js',
+      ],
+      angularTemplates: [
+        './app/page-action/js/**/*.html'
+      ],
+      buildDev: buildDev,
+      buildProd: buildProd,
+    },
   };
 }

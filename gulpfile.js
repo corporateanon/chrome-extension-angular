@@ -14,6 +14,9 @@ spa.appProd     (conf.optionsPage     , 'options.app.prod'   );
 spa.appDev      (conf.browserAction   , 'browser-action.app.dev' );
 spa.appProd     (conf.browserAction   , 'browser-action.app.prod');
 
+spa.appDev      (conf.pageAction   , 'page-action.app.dev' );
+spa.appProd     (conf.pageAction   , 'page-action.app.prod');
+
 spa.appDev      (conf.backgroundScript, 'background.app.dev' );
 spa.appProd     (conf.backgroundScript, 'background.app.prod');
 
@@ -38,6 +41,7 @@ gulp.task('icon.prod', function() {
 gulp.task('dev', [
   'options.app.dev',
   'browser-action.app.dev',
+  'page-action.app.dev',
   'background.app.dev',
   'content.app.dev',
   'manifest.dev',
