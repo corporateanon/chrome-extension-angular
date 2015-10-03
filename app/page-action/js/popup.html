@@ -1,9 +1,17 @@
-<h1>{{vm.title}}</h1>
-<h2>pos</h2>
-<ul>
-  <li ng-repeat="comment in vm.tops.best">{{comment.rank}}</li>
-</ul>
-<h2>neg</h2>
-<ul>
-  <li ng-repeat="comment in vm.tops.worst">{{comment.rank}}</li>
-</ul>
+<div class="container-fluid">
+  <div class="row">
+
+    <div class="col-xs-6">
+      <ul>
+        <li ng-repeat="comment in vm.tops.best">{{comment.rank}}</li>
+      </ul>
+    </div>
+
+    <div class="col-xs-6">
+      <ul>
+        <li ng-repeat="comment in vm.tops.worst">{{comment.rank}}</li>
+      </ul>      
+    </div>
+
+  </div>  
+</div>

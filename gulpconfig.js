@@ -84,6 +84,9 @@ function conf() {
       vendorJs: [
         './app/bower_components/angular/angular.js',
       ],
+      less: [
+        './app/page-action/less/main.less',
+      ],
       js: [
         './app/page-action/js/**/*.module.js',
         './app/page-action/js/**/*.!(module).js',
