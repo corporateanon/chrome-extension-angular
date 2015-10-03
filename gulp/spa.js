@@ -60,16 +60,20 @@ function app(conf, taskName, dev) {
     smApp = gulp
       .src(conf.js)
       .pipe($.if(dev, $.sourcemaps.init()))
-      .pipe($.babel())
+      .pipe($.babel({
+        optional: [
+          'es7.functionBind'
+        ]
+      }))
       .pipe($.concat('app.js'))
       .pipe($.if(!dev, $.uglify()))
       .pipe($.if(dev, $.sourcemaps.write()));
 
-    if(conf.less) {
+    if (conf.less) {
       smLess = gulp
         .src(conf.less)
         .pipe($.less())
-        .pipe(gulp.dest(destCss));      
+        .pipe(gulp.dest(destCss));
     }
 
     if (conf.vendorJs) {
@@ -98,11 +102,11 @@ function app(conf, taskName, dev) {
 
     smFullApp = smFullApp.pipe(gulp.dest(destJs));
 
-    
+
     smInject = conf.vendorJs ? series(smVendor, smFullApp) : smFullApp;
 
-    if(conf.less) {
-      smInject = series(smVendor, smLess);
+    if (conf.less) {
+      smInject = series(smInject, smLess);
     }
 
     if (!conf.html) {
