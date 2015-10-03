@@ -17,12 +17,12 @@ window.App.Top = function() {
   function getTops(comments) {
     const best = _(comments)
       .filter(c => c.rank > 0)
-      .sortBy(['rank'], ['desc'])
+      .sortByOrder(['rank'], ['desc'])
       .value();
 
     const worst = _(comments)
       .filter(c => c.rank < 0)
-      .sortBy(['rank'], ['asc'])
+      .sortByOrder(['rank'], ['asc'])
       .value();
 
     return {

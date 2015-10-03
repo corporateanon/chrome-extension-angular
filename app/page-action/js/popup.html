@@ -1,2 +1,9 @@
 <h1>{{vm.title}}</h1>
-<div>{{vm.tops | json}}</div>
+<h2>pos</h2>
+<ul>
+  <li ng-repeat="comment in vm.tops.best">{{comment.rank}}</li>
+</ul>
+<h2>neg</h2>
+<ul>
+  <li ng-repeat="comment in vm.tops.worst">{{comment.rank}}</li>
+</ul>
