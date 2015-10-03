@@ -106,7 +106,7 @@ function app(conf, taskName, dev) {
     smInject = conf.vendorJs ? series(smVendor, smFullApp) : smFullApp;
 
     if (conf.less) {
-      smInject = series(smVendor, smLess);
+      smInject = series(smInject, smLess);
     }
 
     if (!conf.html) {
