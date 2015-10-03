@@ -3,6 +3,7 @@
 
     angular
         .module('pAction', [
-            'templates'
+            'templates',
+            'pAction.widgets',
         ]);
 })();

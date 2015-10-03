@@ -38,6 +38,7 @@ function conf() {
         './app/bower_components/lodash/lodash.js',
       ],
       js: [
+        './app/common/ns.js',
         './app/background/*.js',
       ],
       buildDev: buildDev,

@@ -2,15 +2,15 @@
   <div class="row">
 
     <div class="col-xs-6">
-      <ul>
-        <li ng-repeat="comment in vm.tops.best">{{comment.rank}}</li>
-      </ul>
+      <bcm-comment
+        ng-repeat="comment in vm.tops.best"
+        value="comment"></bcm-comment>
     </div>
 
     <div class="col-xs-6">
-      <ul>
-        <li ng-repeat="comment in vm.tops.worst">{{comment.rank}}</li>
-      </ul>      
+      <bcm-comment
+        ng-repeat="comment in vm.tops.worst"
+        value="comment"></bcm-comment>
     </div>
 
   </div>  

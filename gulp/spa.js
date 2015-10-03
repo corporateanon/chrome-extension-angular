@@ -62,7 +62,8 @@ function app(conf, taskName, dev) {
       .pipe($.if(dev, $.sourcemaps.init()))
       .pipe($.babel({
         optional: [
-          'es7.functionBind'
+          'es7.functionBind',
+          'es7.classProperties',
         ]
       }))
       .pipe($.concat('app.js'))

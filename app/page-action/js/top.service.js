@@ -12,7 +12,7 @@
     this.getList = getList;
 
     ////////////////
-
+    
     function getList() {
       const def = $q.defer();
       chrome.runtime.sendMessage([
