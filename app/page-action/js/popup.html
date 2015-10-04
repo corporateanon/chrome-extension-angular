@@ -4,13 +4,15 @@
     <div class="col-xs-6">
       <bcm-comment
         ng-repeat="comment in vm.tops.best"
-        value="comment"></bcm-comment>
+        value="comment"
+        ng-click="vm.onCommentClicked(comment)"></bcm-comment>
     </div>
 
     <div class="col-xs-6">
       <bcm-comment
         ng-repeat="comment in vm.tops.worst"
-        value="comment"></bcm-comment>
+        value="comment"
+        ng-click="vm.onCommentClicked(comment)"></bcm-comment>
     </div>
 
   </div>  

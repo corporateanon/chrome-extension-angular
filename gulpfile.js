@@ -79,6 +79,7 @@ gulp.task('watch', function() {
   gulp.watch([
       'app/**/*.js',
       'app/**/*.html',
+      'app/**/*.less',
       'app/**/*.json',
       ], function(event) {
     console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');

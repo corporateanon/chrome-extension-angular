@@ -5,12 +5,16 @@
     .module('pAction')
     .controller('PopupController', PopupController);
 
-  PopupController.$inject = ['$log', 'TopService'];
+  PopupController.$inject = [
+  '$log',
+  'TopService',
+  'NavigationService',
+  ];
 
   /* @ngInject */
-  function PopupController($log, TopService) {
+  function PopupController($log, TopService, NavigationService) {
     var vm = this;
-    vm.title = 'PopupController';
+    vm.onCommentClicked = onCommentClicked;
 
     activate();
 
@@ -18,6 +22,10 @@
 
     function activate() {
       getTops();
+    }
+
+    function onCommentClicked(comment) {
+      NavigationService.navigate(comment.url);
     }
 
     function getTops() {

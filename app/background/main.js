@@ -1,25 +1,19 @@
 (function() {
   ns.service('main', Main);
 
-  Main.$inject = ['top', 'storage'];
+  Main.$inject = ['top', 'storage', 'messaging'];
 
-  function Main(Top, Storage) {
+  function Main(Top, Storage, Messaging) {
     this.activate = activate;
-
-    const HANDLERS = new Map();
-    HANDLERS.set('comments-parsed', onCommentsParsed);
-    HANDLERS.set('request-comments', onRequestComments);
 
     ////////
 
     function activate() {
-      chrome.runtime.onMessage.addListener(onMessage);
-    }
-
-    function onMessage([topic, data], sender, sendResponse) {
-      if (HANDLERS.has(topic)) {
-        return HANDLERS.get(topic).call(null, data, sender, sendResponse);
-      }
+      Messaging.createContext()
+        .on('comments-parsed', onCommentsParsed)
+        .on('request-comments', onRequestComments)
+        .on('navigate', onNavigate)
+        .listen();
     }
 
     function onCommentsParsed(comments, sender, sendResponse) {
@@ -54,6 +48,10 @@
         }
       });
       return true; //`true` means that `sendResponse` is asynchronous. See: https://developer.chrome.com/extensions/runtime#event-onMessage
+    }
+
+    function onNavigate(data, sender, sendResponse) {
+      // alert(data.url);
     }
 
   }

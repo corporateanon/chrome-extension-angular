@@ -1,12 +1,14 @@
-<div class="media">
-  <div class="media-left">
-    <span class="left">
-      <span class="badge">
-        {{vm.value.rank}}
-      </span>
-    </span>
+<div class="bcm-comment">
+  <div class="rank">
+    <b class="{{vm.value.rank > 0 ? 'positive':'negative'}}">
+      {{vm.value.rank}}
+    </b>
   </div>
-  <div class="media-body">
-    {{vm.value.text}}
+  <div class="body">
+    <div>{{vm.value.text}}</div>
+    <small class="author">
+      ^ Написал
+      <u>{{vm.value.author}}</u>
+    </small>
   </div>
 </div>
