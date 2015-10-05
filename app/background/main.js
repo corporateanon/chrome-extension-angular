@@ -9,11 +9,10 @@
     ////////
 
     function activate() {
-      Messaging.createContext()
+      Messaging
         .on('comments-parsed', onCommentsParsed)
         .on('request-comments', onRequestComments)
-        .on('navigate', onNavigate)
-        .listen();
+        .on('navigate', onNavigate);
     }
 
     function onCommentsParsed(comments, sender, sendResponse) {
@@ -50,8 +49,10 @@
       return true; //`true` means that `sendResponse` is asynchronous. See: https://developer.chrome.com/extensions/runtime#event-onMessage
     }
 
-    function onNavigate(data, sender, sendResponse) {
-      // alert(data.url);
+    function onNavigate({url}, sender, sendResponse) {
+      debugger
+      
+      Messaging.sendToActiveTab('tab-navigate', {url});
     }
 
   }

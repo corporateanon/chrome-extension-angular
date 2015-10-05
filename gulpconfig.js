@@ -21,6 +21,8 @@ function conf() {
         './app/content/less/main.less',
       ],
       js: [
+        './app/common/ns.js',
+        './app/common/messaging.js',
         './app/content/js/**/*.module.js',
         './app/content/js/**/*.!(module).js',
       ],
@@ -39,6 +41,7 @@ function conf() {
       ],
       js: [
         './app/common/ns.js',
+        './app/common/messaging.js',
         './app/background/*.js',
       ],
       buildDev: buildDev,

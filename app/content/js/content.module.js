@@ -2,5 +2,5 @@
   'use strict';
 
   angular
-    .module('content', ['templates']);
+    .module('content', ['templates', 'common']);
 })();

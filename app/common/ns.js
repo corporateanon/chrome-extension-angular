@@ -24,6 +24,22 @@ window.ns = (function() {
   function service(id, serviceConstructor) {
     id = '' + id
     services.set(id, serviceConstructor);
+    return {
+      ngCompat: ngCompat.bind(null, serviceConstructor)
+    }
+  }
+
+  function ngCompat(serviceConstructor, moduleId, id) {
+    const angular = window.angular;
+    if (angular) {
+      try {
+        angular.module(moduleId)
+      } catch (err) {
+        angular.module(moduleId, []);
+      }
+      angular.module(moduleId)
+        .service(id, serviceConstructor);
+    }
   }
 
   function get(id) {
