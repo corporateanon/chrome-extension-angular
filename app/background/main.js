@@ -50,8 +50,6 @@
     }
 
     function onNavigate({url}, sender, sendResponse) {
-      debugger
-      
       Messaging.sendToActiveTab('tab-navigate', {url});
     }
 

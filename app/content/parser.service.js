@@ -1,14 +1,12 @@
 (function () {
   'use strict';
 
-  angular
-    .module('content')
-    .service('parser', Parser);
+  ns.service('parser', Parser);
 
-  Parser.$inject = ['$document'];
+  Parser.$inject = ['document'];
 
   /* @ngInject */
-  function Parser($document) {
+  function Parser(document) {
     this.parseBody = parseBody;
 
 
@@ -16,14 +14,7 @@
 
 
     function parseBody(config) {
-      return parse($document[0].body, config);
-    }
-
-    function parseUrl(node) {
-      if (!node) {
-        return '';
-      }
-      return node.getAttribute('href');
+      return parse(document.body, config);
     }
 
     function parseRank(node, config) {

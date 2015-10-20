@@ -8,11 +8,7 @@
   "content_scripts": [{
     "matches": ["https://*.dirty.ru/*"],
     "js": [
-      "content/js/vendors.js",
       "content/js/app.js"
-    ],
-    "css": [
-      "content/css/main.css"
     ]
   }],
   "background": {

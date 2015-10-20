@@ -14,20 +14,10 @@ function conf() {
 
     contentScript: {
       destAssets: 'content',
-      vendorJs: [
-        './app/bower_components/angular/angular.js',
-      ],
-      less: [
-        './app/content/less/main.less',
-      ],
       js: [
         './app/common/ns.js',
         './app/common/messaging.js',
-        './app/content/js/**/*.module.js',
-        './app/content/js/**/*.!(module).js',
-      ],
-      angularTemplates: [
-        './app/content/js/**/*.html'
+        './app/content/**/*.js',
       ],
       buildDev: buildDev,
       buildProd: buildProd,

@@ -1,9 +1,7 @@
 (function () {
   'use strict';
 
-  angular
-    .module('content')
-    .factory('parserDirtyRu', parserDirtyRu);
+  ns.service('parserDirtyRu', parserDirtyRu);
 
   parserDirtyRu.$inject = [];
 
@@ -24,11 +22,19 @@
       extractImg     : el => el && el.getAttribute('src'),
       extractText    : el => el && String.prototype.trim.call(el.textContent || ''),
       extractAuthor  : el => el && String.prototype.trim.call(el.textContent || ''),
+
+      expandAllThreads : expandAllThreads
     };
 
     return service;
 
     ////////////////
 
+    function expandAllThreads(root) {
+      Array.from(root.querySelectorAll('.b-comments_collapsed'))
+        .forEach(el => el.classList.add('b-comments_collapsed_expanded'));
+      Array.from(root.querySelectorAll('.b-comments_collapsed_comments'))
+        .forEach(el => el.style.maxHeight = 'none');
+    }
   }
 })();
