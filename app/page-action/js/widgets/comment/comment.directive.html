@@ -1,4 +1,6 @@
 <div class="bcm-comment">
+  <img ng-if="vm.value.img" class="image" ng-src="{{vm.value.img}}" />
+
   <div class="rank">
     <b class="{{vm.value.rank > 0 ? 'positive':'negative'}}">
       {{vm.value.rank}}

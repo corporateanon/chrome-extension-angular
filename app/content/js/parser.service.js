@@ -15,7 +15,8 @@
     this.SELECTOR_RANK    = '.vote_result',
     this.SELECTOR_TEXT    = '.c_body',
     this.SELECTOR_URL     = '.c_footer .c_icon',
-    this.SELECTOR_AUTOR   = '.c_footer .c_user',
+    this.SELECTOR_AUTHOR  = '.c_footer .c_user',
+    this.SELECTOR_IMG     = '.img_wrapper:first-of-type img:first-of-type',
 
     this.parseBody   = parseBody;
     this.parse       = parse;
@@ -23,6 +24,7 @@
     this.parseRank   = parseRank;
     this.parseAuthor = parseAuthor;
     this.parseText   = parseText;
+    this.parseImg   = parseImg;
 
 
     ////////////////
@@ -62,39 +64,45 @@
       return ('' + node.textContent).trim();
     }
 
-    function parse(node) {
-      var nComments = node.querySelectorAll(this.SELECTOR_COMMENT);
-      var results = [];
-      for (var i = 0; i < nComments.length; i++) {
-        var nComment = nComments[i];
-
-        var nRank = this.SELECTOR_RANK ?
-          nComment.querySelector(this.SELECTOR_RANK) : nComment;
-
-        var nText = this.SELECTOR_TEXT ?
-          nComment.querySelector(this.SELECTOR_TEXT) : nComment;
-
-        var nLink = this.SELECTOR_URL ?
-          nComment.querySelector(this.SELECTOR_URL) : nComment;
-
-        var nAuthor = this.SELECTOR_AUTOR ?
-          nComment.querySelector(this.SELECTOR_AUTOR) : nComment;
-
-        var iRank = this.parseRank(nRank);
-        var sText = this.parseText(nText);
-        var sUrl = this.parseUrl(nLink);
-        var sAuthor = this.parseAuthor(nAuthor);
-
-        results.push({
-          rank: iRank,
-          text: sText,
-          url: sUrl,
-          author: sAuthor
-        });
+    function parseImg(node) {
+      if (!node) {
+        return null;
       }
-
-      return results;
+      return node.getAttribute('src') || null;
     }
 
+    function parse(node) {
+      return Array.from(node.querySelectorAll(this.SELECTOR_COMMENT))
+        .map(nComment => {
+          var nRank = this.SELECTOR_RANK ?
+            nComment.querySelector(this.SELECTOR_RANK) : nComment;
+
+          var nText = this.SELECTOR_TEXT ?
+            nComment.querySelector(this.SELECTOR_TEXT) : nComment;
+
+          var nLink = this.SELECTOR_URL ?
+            nComment.querySelector(this.SELECTOR_URL) : nComment;
+
+          var nAuthor = this.SELECTOR_AUTHOR ?
+            nComment.querySelector(this.SELECTOR_AUTHOR) : nComment;
+
+          var nImg = this.SELECTOR_IMG ?
+            nComment.querySelector(this.SELECTOR_IMG) : nComment;
+
+          var rank = this.parseRank(nRank);
+          var text = this.parseText(nText);
+          var url = this.parseUrl(nLink);
+          var author = this.parseAuthor(nAuthor);
+          var img = this.parseImg(nImg);
+
+          return {
+            rank,
+            text,
+            url,
+            author,
+            img,
+          };
+        })
+    }
   }
 })();
